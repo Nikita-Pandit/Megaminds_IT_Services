@@ -1,0 +1,136 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  font-family: "Poppins", sans-serif;
+   color:#ffff;  
+  box-sizing: border-box;
+}
+.card{
+  width: 20vw; border-radius: 20px;
+}
+.student-name{
+  font-size: 18px;
+  text-align: center; margin-top: 10px;
+}
+
+.more-info{
+  margin-top: 10px;
+  text-align: center;
+}
+.profile-container{
+  display: flex;
+gap:4vw;
+  /* gap:20px; */
+}
+.profile-container .left-profile{
+  width: 30vw;
+    /* background-color: red; */
+    padding-top: 7.8rem;
+    text-align: center;
+}
+.profile-container .right-profile-info{
+  border:2px solid rgb(57, 154, 181) ;
+}
+.input-links{
+  text-align: center;
+  width:20vw; padding: 5px;
+  border-radius: 10px; outline:none;
+}
+body{
+  margin:30px;
+  /* background-color: #111; */
+  background: linear-gradient(to bottom right, #111827, #1f2937);
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+
+}
+ul li:hover{
+  color:blue;
+}
+.input-field{
+  width:25vw;
+}
+.input-p{
+  font-size: 14px;
+}
+ .form-container{
+  height:80vh;
+   /* background-color: green;  */
+ }
+ .footer{
+  text-align: center;
+ margin-bottom: 3vh;
+ }
+ textarea{
+  border:2px solid rgb(57, 154, 181) ;
+ }
+.image-profile-container{
+  border-color: #111;
+  height:30vh;
+}
+.heading{
+width: 100%;
+height:70px;
+}
+
+.box-design{
+  border:2px solid rgb(57, 154, 181) ;
+  border-radius: 10px; outline:none;
+  text-align:center;
+}
+.cart-bottom {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: max(12vw,20px);
+}
+.cart-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  color: #555555;
+  gap:300px;
+}
+
+.cart-total hr {
+  margin: 10px 0px;
+}
+.cart-total button {
+  border: none;
+  color: white;
+  background-color: #FF4C24;
+  width: max(15vw,200px);
+  padding: 12px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cart-items{
+  display:flex;
+  /* justify-content: space-between; */
+  gap:250px;
+  padding:10px;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:50px;
+  margin-top: 25px;
+  border-radius: 10px;
+}
+.wrap-cart-bottom{
+  margin-top: 20px;
+  border-radius: 10px;
+  
+
+}
