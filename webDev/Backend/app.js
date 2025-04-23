@@ -46,7 +46,7 @@ app.use("/api",resetPasswordRoutes)
 
 const frontendUrl=process.env.FRONTEND_URL ||  'http://localhost:5173'
 
-
+console.log(frontendUrl)
 app.get('/verify', async (req, res) => {
   const { token } = req.query;
   console.log("token",token);
@@ -63,7 +63,7 @@ console.log(userIDMatchWithToken)
       );
       // console.log("Before SignUp",user)
        await user.save()
-      //  console.log("After SignUp",user)
+      console.log("After SignUp",user)
       if (!user) {
           return res.status(400).json({ message: 'Invalid or expired token',user });
       }

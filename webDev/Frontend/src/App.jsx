@@ -5,14 +5,8 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Cart from './pages/Cart';
 import Products from "./pages/Products"
-import Order from "./pages/Myorders/Order"
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
  import Home from './pages/Home';
-import { AddProduct, EditProduct, DeleteProduct, ManageOrders, Reports } from "./pages/Admin/AdminDashboard"
-import AdminLogin from './pages/Admin/Login/AdminLogin';
-import AdminSignUp from './pages/Admin/SignUp/AdminSignUp';
-// import AdminNav from './pages/Admin/AdminNav';
-import Payment from "./pages/PaymentPage/Payment"
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
 import ResetPassword from './pages/ResetPassword/ResetPassword';
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -45,19 +39,11 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Products" element={<Products updateCartCount={updateCartCount} />} />
           <Route path="/Cart" element={<Cart updateCartCount={updateCartCount} />} />
-          <Route path="/Order" element={<Order/>} />
+       
           <Route path="/PlaceOrder" element={<PlaceOrder/>}/>
-          <Route path="/Payment/:orderID" element={<Payment/>} />
           <Route path="/ResetPassword/:token" element={<ResetPassword/>}/>
-          <Route path="/Admin/AdminDashboard">
-            <Route path="AddProduct" element={<AddProduct />} />
-            <Route path="EditProduct" element={<EditProduct />} />
-            <Route path="DeleteProduct" element={<DeleteProduct />} />
-            <Route path="ManageOrders" element={<ManageOrders />} />
-            <Route path="Reports" element={<Reports />} />
-          </Route>
-          <Route path="/Admin/Login/AdminLogin" element={<AdminLogin />} />
-          <Route path="/Admin/Login/AdminSignUp" element={<AdminSignUp />} />
+       
+         
         </Routes>
       </>
     );

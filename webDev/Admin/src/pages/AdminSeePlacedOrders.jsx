@@ -210,6 +210,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const AdminSeePlacedOrders = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const location = useLocation();
   const order = location.state?.order;
   const cartArray = order?.cart || [];
@@ -273,7 +274,7 @@ const AdminSeePlacedOrders = () => {
                             <div className="flex items-center">
                               <div className="flex-shrink-0 h-10 w-10 bg-gray-700 rounded-md flex items-center justify-center">
                                 {item.image ? (
-                                  <img className="h-full w-full object-cover" src={item.image} alt={item.name} />
+                                  <img className="h-full w-full object-cover" src={`${backendUrl}/images/${item.image}`}  alt={item.name} />
                                 ) : (
                                   <span className="text-gray-400 text-xs">No Image</span>
                                 )}
