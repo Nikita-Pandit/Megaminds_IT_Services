@@ -785,6 +785,7 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+     console.log("SignUp component rendered");
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('id');
     if (id) {
