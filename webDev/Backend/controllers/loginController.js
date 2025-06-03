@@ -1,5 +1,7 @@
 const customerModel=require("../models/customerModel")
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
+
+
 const jwt = require("jsonwebtoken");
 const cartModel=require("../models/cartModel");
 const loginController=async (req,res)=>{

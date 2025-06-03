@@ -1,5 +1,5 @@
 const customerModel= require("../models/customerModel")
-const bcrypt=require("bcrypt")
+const bcrypt=require("bcryptjs")
 
 const resetPasswordController=async(req,res)=>{
     const { token, password } = req.body; 
