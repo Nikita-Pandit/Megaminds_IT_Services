@@ -69,7 +69,7 @@ console.log(userIDMatchWithToken)
       }
       // res.json({ message: 'Email verified successfully!' });
        //return res.redirect(`http://localhost:5178/SignUp?id=${userIDMatchWithToken._id}`);
-      return res.redirect(`${frontendUrl}/SignUp?id=${user._id}`);
+      return res.redirect("https://college-mini-project-backend.onrender.com/SignUp?id=${user._id}");
   } catch (error) {
       console.error('Error during verification:', error);
       res.status(400).json({ error: 'Verification failed' });
