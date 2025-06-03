@@ -188,7 +188,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { ShoppingBag, Truck, Shield, Star, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
 
 const Home = () => {
@@ -196,7 +196,16 @@ const Home = () => {
   const [latestProducts, setLatestProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
+  const location = useLocation();
+              useEffect(() => {
+     console.log("SignUp component rendered");
+    const queryParams = new URLSearchParams(location.search);
+    const id = queryParams.get('id');
+    if (id) {
+      localStorage.setItem("customerID", id);
+    }
+  }, [location]);
   useEffect(() => {
     const fetchLatestProducts = async () => {
         try {
