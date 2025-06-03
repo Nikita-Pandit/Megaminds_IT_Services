@@ -198,14 +198,17 @@ const Home = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-              useEffect(() => {
-     console.log("SignUp component rendered");
+            
+useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('id');
     if (id) {
-      localStorage.setItem("customerID", id);
+      localStorage.setItem('customerID', id);
+      navigate(`/SignUp?id=${id}`);
     }
-  }, [location]);
+  }, [location, navigate]);
+
+            
   useEffect(() => {
     const fetchLatestProducts = async () => {
         try {
