@@ -11,7 +11,7 @@ import ResetPassword from './pages/ResetPassword/ResetPassword';
 function App() {
   const [cartCount, setCartCount] = useState(0);
 
-  // Sync cart count with localStorage
+  // Sync cart count with localStoragme
   const updateCartCount = () => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     setCartCount(cart.length);

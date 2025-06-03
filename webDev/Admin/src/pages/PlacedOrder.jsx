@@ -125,6 +125,7 @@ const PlacedOrder = () => {
   const fetchPlacedOrders = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/userPlacedOrdersInAdminDashboard`);
+      console.log("response",response.data);
       console.log("response.data.fetchPlacedOrders",response.data.fetchPlacedOrders)
       if (response.data.success) {
         setOrders(response.data.fetchPlacedOrders);
@@ -172,6 +173,7 @@ const PlacedOrder = () => {
                   <td className="py-3 px-6 text-center">{new Date(order.orderDate).toLocaleDateString()}</td>
                   <td className="py-3 px-6 text-center">
                     <button onClick={()=>{
+                      console.log(order)
 navigate("/AdminSeePlacedOrders", { state: { order:order} })
                     }}>see products</button>
                   </td>

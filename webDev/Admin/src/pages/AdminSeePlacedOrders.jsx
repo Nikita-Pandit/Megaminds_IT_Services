@@ -215,7 +215,7 @@ const AdminSeePlacedOrders = () => {
   const order = location.state?.order;
   const cartArray = order?.cart || [];
   const customerDetails = order?.customerDetails || {};
-  
+  console.log("yyyy",customerDetails);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const calculateTotalPrice = (cart) => {
@@ -243,7 +243,7 @@ const AdminSeePlacedOrders = () => {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white">Order Details</h2>
           <div className="text-indigo-400 font-medium">
-            Order ID: <span className="text-white">{order?.orderId || 'N/A'}</span>
+            Order ID: <span className="text-white">{order?.orderID || 'N/A'}</span>
           </div>
         </div>
 
@@ -272,15 +272,19 @@ const AdminSeePlacedOrders = () => {
                         <tr key={index} className="hover:bg-gray-700/20 transition-colors">
                           <td className="px-6 py-4 whitespace-nowrap text-white">
                             <div className="flex items-center">
-                              <div className="flex-shrink-0 h-10 w-10 bg-gray-700 rounded-md flex items-center justify-center">
+                              {/* <div className="flex-shrink-0 h-10 w-10 bg-gray-700 rounded-md flex items-center justify-center">
                                 {item.image ? (
                                   <img className="h-full w-full object-cover" src={`${backendUrl}/images/${item.image}`}  alt={item.name} />
                                 ) : (
                                   <span className="text-gray-400 text-xs">No Image</span>
                                 )}
-                              </div>
+                              </div> */}
                               <div className="ml-4">
                                 <div className="text-sm font-medium text-white">{item.name}</div>
+                                {
+                                  console.log('Item category:', item)
+
+                                }
                                 <div className="text-sm text-gray-400">{item.category || 'N/A'}</div>
                               </div>
                             </div>

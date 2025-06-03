@@ -283,13 +283,13 @@ const PlaceOrder = () => {
   const handlePlaceOrder = async () => {
     if (!validateForm()) return;
     setIsLoading(true);
-
+console.log("isCart",isCart)
     try {
-      const formattedCart = isCart.map(({ name, price, stock, quantity }) => ({
+      const formattedCart = isCart.map(({ name, price, stock, quantity}) => ({
         name,
         price,
         stock,
-        quantity
+        quantity,
       }));
       
       const order = {

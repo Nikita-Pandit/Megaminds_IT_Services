@@ -4,14 +4,14 @@ const customerModel=require("../models/customerModel")
 const orderController=async(req,res)=>{
   
 const {customerDetails,finalCart,totalPrice}=req.body
-console.log("Requested body is",req.body)
+// console.log("Requested body is",req.body)
 const {id}=req.params;
-console.log("finalCart",finalCart);
+console.log("finalCart",finalCart); //array
 try{
   const customer=await customerModel.findOne({_id:id})
     const order=new orderModel({
         customerDetails,
-        cart: finalCart,
+        cart: finalCart,  //array
         totalPrice,
         orderDate: new Date(),   
         userID:customer._id 

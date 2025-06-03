@@ -141,7 +141,7 @@ app.get("/api/userPlacedOrdersInAdminDashboard", async (req, res) => {
   try {
     console.log("Fetching orders...");
     const fetchPlacedOrders = await orderModel.find();
-    console.log("Orders fetched:", fetchPlacedOrders);
+    console.log("Orders fetched:", fetchPlacedOrders.cart);
 
     res.json({ fetchPlacedOrders, success: true });
   } catch (err) {
