@@ -258,65 +258,6 @@ app.post("/api/fetchCartDetails", async (req, res) => {
   }
 });
 
-
-
-
-// POST /api/food/rateProduct
-// app.post('/api/food/rateProduct', async (req, res) => {
-//   const { stockCode, rating, userID } = req.body;
-
-//   try {
-//     const product = await productModel.findOne({ stockCode });
-//     if (!product) return res.status(404).json({ message: 'Product not found' });
-
-//     // Optional: Prevent multiple ratings from the same user
-//     const existingRating = product.ratings.find(r => r.userID.toString() === userID);
-//     consol
-//     if (existingRating) {
-//       existingRating.rating = rating;
-//     } else {
-//       product.ratings.push({ userID, rating });
-//     }
-
-//     // Recalculate average rating
-//     const total = product.ratings.reduce((acc, r) => acc + r.rating, 0);
-//     product.averageRating = total / product.ratings.length;
-
-//     await product.save();
-//     res.json({ message: 'Rating submitted', averageRating: product.averageRating });
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server error', error });
-//   }
-// });
-
-app.post('/api/food/rateProduct', async (req, res) => {
-  const { productId, userId, rating } = req.body;
-
-  try {
-    const product = await productModel.findById({_id:productId});
-    if (!product) return res.status(404).json({ message: 'Product not found' });
-
-    // Check if user has already rated
-    const existingRating = product.ratings.find(r => r.userId.toString() === userId);
-    if (existingRating) {
-      existingRating.rating = rating;
-    } else {
-      product.ratings.push({ userId, rating });
-    }
-
-    // Calculate average rating
-    const total = product.ratings.reduce((sum, r) => sum + r.rating, 0);
-    product.rating = total / product.ratings.length;
-
-    await product.save();
-    res.json({ message: 'Rating submitted successfully', rating: product.rating });
-  } catch (error) {
-    console.error('Error submitting rating:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-
 app.listen(PORT,()=>{
     console.log(`server is listening at PORT ${PORT}`)
 })
