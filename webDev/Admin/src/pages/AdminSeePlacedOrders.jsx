@@ -272,13 +272,13 @@ const AdminSeePlacedOrders = () => {
                         <tr key={index} className="hover:bg-gray-700/20 transition-colors">
                           <td className="px-6 py-4 whitespace-nowrap text-white">
                             <div className="flex items-center">
-                              {/* <div className="flex-shrink-0 h-10 w-10 bg-gray-700 rounded-md flex items-center justify-center">
+                              <div className="flex-shrink-0 h-10 w-10 bg-gray-700 rounded-md flex items-center justify-center">
                                 {item.image ? (
                                   <img className="h-full w-full object-cover" src={`${backendUrl}/images/${item.image}`}  alt={item.name} />
                                 ) : (
                                   <span className="text-gray-400 text-xs">No Image</span>
                                 )}
-                              </div> */}
+                              </div>
                               <div className="ml-4">
                                 <div className="text-sm font-medium text-white">{item.name}</div>
                                 {

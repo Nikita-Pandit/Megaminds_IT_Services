@@ -4,7 +4,6 @@ const customerModel=require("../models/customerModel")
 const orderController=async(req,res)=>{
   
 const {customerDetails,finalCart,totalPrice}=req.body
-// console.log("Requested body is",req.body)
 const {id}=req.params;
 console.log("finalCart",finalCart); //array
 try{

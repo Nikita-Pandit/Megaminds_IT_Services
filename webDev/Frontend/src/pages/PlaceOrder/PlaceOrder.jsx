@@ -255,6 +255,7 @@ const PlaceOrder = () => {
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log("savedCart", savedCart)
     setIsCart(savedCart);
 
     const total = savedCart.reduce(
@@ -285,13 +286,17 @@ const PlaceOrder = () => {
     setIsLoading(true);
 console.log("isCart",isCart)
     try {
-      const formattedCart = isCart.map(({ name, price, stock, quantity}) => ({
+
+      const formattedCart = isCart.map(({ name, price, stock, quantity,category, image, description}) => ({
         name,
         price,
         stock,
         quantity,
+        category, 
+        image, 
+        description
       }));
-      
+      console.log("formattedCart", formattedCart)
       const order = {
         customerDetails,
         finalCart: formattedCart,
