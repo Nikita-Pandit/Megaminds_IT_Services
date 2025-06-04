@@ -227,7 +227,7 @@ const Login = () => {
         }
         toast.success('Login Successful');
         setTimeout(() => {
-          navigate('/Home');
+          navigate('/');
           window.location.reload();
         }, 2000);
       } else {
