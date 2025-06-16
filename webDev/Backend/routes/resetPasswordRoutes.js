@@ -1,6 +1,10 @@
 const express=require("express")
 const router=express.Router()
 
-const {resetPasswordController}=require("../controllers/resetPasswordController")
-router.post("/reset-password",resetPasswordController)
+const {customerResetPasswordController, adminResetPasswordController}=require("../controllers/resetPasswordController")
+
+router.post("/customer/reset",customerResetPasswordController)
+
+router.post("/admin/reset-password",adminResetPasswordController)
+
 module.exports=router

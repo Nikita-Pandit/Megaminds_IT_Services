@@ -56,6 +56,15 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-6">
+
+              <Link 
+              to="/login" 
+              className="flex items-center px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-indigo-400 transition-colors font-medium group"
+            >
+              {/* <PlusCircle className="mr-2 text-indigo-400 group-hover:text-indigo-300" size={18} /> */}
+              Login
+            </Link>
+
             <Link 
               to="/Add" 
               className="flex items-center px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-indigo-400 transition-colors font-medium group"

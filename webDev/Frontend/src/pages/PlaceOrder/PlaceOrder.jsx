@@ -306,7 +306,7 @@ console.log("isCart",isCart)
       const response = await axios.post(`${backendUrl}/api/orders/${id}`, order);
       
       toast.success('Order placed successfully!', {
-        style: { color: '#fff', background: '#10b981' },
+        style: { color: '#111' },
       });
       
       localStorage.removeItem('cart');
@@ -314,7 +314,7 @@ console.log("isCart",isCart)
     } catch (error) {
       console.error('Error placing order:', error);
       toast.error('Failed to place the order. Please try again.', {
-        style: { color: '#fff', background: '#ef4444' },
+        style: { color: '#111'},
       });
     } finally {
       setIsLoading(false);
@@ -333,7 +333,7 @@ console.log("isCart",isCart)
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        // theme="dark"
       />
       
       <div className="relative max-w-6xl mx-auto">

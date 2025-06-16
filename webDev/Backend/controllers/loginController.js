@@ -1,9 +1,10 @@
 const customerModel=require("../models/customerModel")
 const bcrypt = require("bcryptjs");
-
-
+const adminModel=require("../models/AdminModel")
 const jwt = require("jsonwebtoken");
 const cartModel=require("../models/cartModel");
+
+
 const loginController=async (req,res)=>{
  const {email,password}=req.body
 try{
@@ -44,4 +45,43 @@ catch(error){
     res.status(500).json({ success: false, message: "Internal server error" });
 }
 }
-module.exports={loginController}
+
+
+
+
+
+const adminloginController=async (req,res)=>{
+ const {email,password}=req.body
+try{
+    const admin= await adminModel.findOne({email})
+    console.log(password)
+    console.log(admin.password)
+   
+    if(admin){
+       
+         const isPasswordValid =  await bcrypt.compare(password,admin.password)
+         if(isPasswordValid){
+            // If password matches, send a success response
+
+            const token=jwt.sign(
+                {adminID:admin._id,email:admin.email},
+                process.env.JWT_SECRET_KEY, 
+                { expiresIn: '1h' }  // Expiration time (optional)
+            )
+             return  res.status(200).json({ success: true, message: "Login successful", token, adminID:admin._id });
+            }
+          
+         }
+      
+    
+    else {
+        res.status(404).json({ success: false, message: "No record found in the DB." });
+      }
+}
+catch(error){
+    console.error("Something went wrong", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+}
+}
+
+module.exports={loginController, adminloginController}

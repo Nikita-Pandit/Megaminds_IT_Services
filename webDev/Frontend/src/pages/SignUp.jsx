@@ -779,32 +779,13 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //    console.log("SignUp component rendered");
-  //   const queryParams = new URLSearchParams(location.search);
-  //   const id = queryParams.get('id');
-  //   if (id) {
-  //     localStorage.setItem("customerID", id);
-  //   }
-  // }, [location]);
 
-  //   useEffect(() => {
-//     const queryParams = new URLSearchParams(location.search);
-//     console.log("queryParams",queryParams)
-//     const id = queryParams.get('id');
-//   console.log("id in signUp", id);
-//     if (id) {
-//       console.log('Id received from URL:', id);
-//       localStorage.setItem("customerID",id)
-//       //navigate("/Products");
-//     //window.location.reload(); // Refresh to update the header
-//     }
-//   }, [location,navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -813,6 +794,7 @@ const SignUp = () => {
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
       const response = await axios.post(`${backendUrl}/api/SignUp`, {
         name,
+        userName,
         email,
         contact,
         password,
@@ -820,7 +802,7 @@ const SignUp = () => {
 
       if (response.data.success) {
         toast.success('Verification email sent! Please check your inbox.', {
-          style: { color: '#1111' },
+          style: { color: '#111' },
         });
       }
     } catch (error) {
@@ -845,7 +827,7 @@ const SignUp = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        // theme="dark"
       />
       
       <div className="relative w-full max-w-md">
@@ -883,6 +865,34 @@ const SignUp = () => {
                     placeholder="Full Name"
                   />
                 </div>
+
+    <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <User className="text-gray-400 group-focus-within:text-indigo-400 transition-colors" size={18} />
+                  </div>
+                  <input
+                    className="w-full pl-10 pr-4 py-3 bg-gray-700/40 text-white rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all border border-gray-600/30 hover:border-gray-500/50 group-focus-within:border-indigo-400 placeholder-gray-400"
+                    type="text"
+                    required
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="user Name"
+                  />
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

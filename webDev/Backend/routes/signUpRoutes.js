@@ -5,6 +5,6 @@ const {signUpController}=require("../controllers/signUpController")
 const {adminSignupController}=require("../controllers/signUpController")
 
 router.post("/SignUp",signUpController)
-router.post("/AdminSignUp",adminSignupController)
+router.post("/adminSignUp",adminSignupController)
 
 module.exports=router

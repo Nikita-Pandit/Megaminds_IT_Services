@@ -197,12 +197,7 @@ const Header = ({ cartCount }) => {
             >
               Products
             </Link>
-            <Link 
-              to="/Login" 
-              className="text-gray-300 hover:text-indigo-400 transition-colors font-medium"
-            >
-           Login
-            </Link>
+           
             <Link 
               to="/Cart" 
               className="flex items-center text-gray-300 hover:text-indigo-400 transition-colors font-medium"

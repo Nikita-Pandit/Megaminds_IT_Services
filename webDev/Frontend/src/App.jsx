@@ -7,7 +7,7 @@ import Cart from './pages/Cart';
 import Products from "./pages/Products"
  import Home from './pages/Home';
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
-import ResetPassword from './pages/ResetPassword/ResetPassword';
+import ResetPassword from './pages/ResetPassword';
 function App() {
   const [cartCount, setCartCount] = useState(0);
 

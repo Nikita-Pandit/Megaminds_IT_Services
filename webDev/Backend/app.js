@@ -14,10 +14,7 @@ app.use(bodyParser.json());
 
 app.use(express.json()) 
 
-// const passport = require('passport');
-// const session = require('cookie-session');
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
-// const FacebookStrategy = require('passport-facebook').Strategy;
+
 
 
 const PORT=process.env.PORT
@@ -34,6 +31,7 @@ const forgotPasswordRoutes=require("./routes/forgotPasswordRoutes")
 const resetPasswordRoutes=require("./routes/resetPasswordRoutes")
 
 const customerModel=require("./models/customerModel")
+const adminModel=require("./models/AdminModel")
 //api endpoints
 app.use("/api",signUpRoutes)
 app.use("/api",loginRoutes)
@@ -47,6 +45,8 @@ app.use("/api",resetPasswordRoutes)
 const frontendUrl=process.env.FRONTEND_URL ||  'http://localhost:5173'
 
 console.log(frontendUrl)
+
+
 app.get('/verify', async (req, res) => {
   const { token } = req.query;
   console.log("token",token);
@@ -257,6 +257,41 @@ app.post("/api/fetchCartDetails", async (req, res) => {
     res.status(500).json({ error: "Failed to save cart data" });
   }
 });
+
+
+
+
+
+
+//
+
+app.get('/admin/verify', async (req, res) => {
+  const { token } = req.query;
+  console.log("token",token);
+  try {
+    console.log("verify route 2")
+      // Find the user with the token
+      const userIDMatchWithToken=await adminModel.findOne({verificationToken: token})
+console.log(userIDMatchWithToken)
+      const admin = await adminModel.findOneAndUpdate(
+        
+          { verificationToken: token },
+          { isVerified: true, verificationToken: null },
+          { new: true }
+      );
+       await admin.save()
+      if (!admin) {
+          return res.status(400).json({ message: 'Invalid or expired token',user });
+      }
+    res.redirect(`http://localhost:5174?id=${admin._id}`);
+
+  } catch (error) {
+      console.error('Error during verification:', error);
+      res.status(400).json({ error: 'Verification failed' });
+  }
+})
+
+
 
 app.listen(PORT,()=>{
     console.log(`server is listening at PORT ${PORT}`)
