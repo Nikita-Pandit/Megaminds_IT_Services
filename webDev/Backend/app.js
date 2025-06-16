@@ -70,7 +70,7 @@ console.log(userIDMatchWithToken)
       // res.json({ message: 'Email verified successfully!' });
        //return res.redirect(`http://localhost:5178/SignUp?id=${userIDMatchWithToken._id}`);
       // return res.redirect(`${frontendUrl}/SignUp?id=${user._id}`);
-    res.redirect(`${frontendUrl}/?id=${user._id}`);
+    res.redirect(`https://megaminds-it-services-frontend.onrender.com/?id=${user._id}`);
 
   } catch (error) {
       console.error('Error during verification:', error);
@@ -283,7 +283,7 @@ console.log(userIDMatchWithToken)
       if (!admin) {
           return res.status(400).json({ message: 'Invalid or expired token',user });
       }
-    res.redirect(`http://localhost:5174?id=${admin._id}`);
+    res.redirect(`https://megaminds-it-services-admin.onrender.com?id=${admin._id}`);
 
   } catch (error) {
       console.error('Error during verification:', error);

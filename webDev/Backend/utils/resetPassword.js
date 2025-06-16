@@ -20,7 +20,7 @@ const cusResetPassword = async (email, resetToken,name) => {
             html: `
               <p>Hi ${name},</p>
               <p>You requested a password reset. Click the link below to reset your password:</p>
-              <a href="http://localhost:5173/Resetpassword/${resetToken}">Reset Password</a>
+              <a href="https://megaminds-it-services-frontend.onrender.com/Resetpassword/${resetToken}">Reset Password</a>
               <p>If you did not request this, please ignore this email.</p>
             `,
           };   
@@ -59,7 +59,7 @@ const adminResetPassword = async (email, resetToken,name) => {
             html: `
               <p>Hi ${name},</p>
               <p>You requested a password reset. Click the link below to reset your password:</p>
-              <a href="http://localhost:5174/reset-password/${resetToken}">Reset Password</a>
+              <a href="https://megaminds-it-services-admin.onrender.com/reset-password/${resetToken}">Reset Password</a>
               <p>If you did not request this, please ignore this email.</p>
             `,
           };   
